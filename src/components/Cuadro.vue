@@ -1,59 +1,34 @@
 <template>
   <div class="columnas">
-    <div id="box1" v-on:click="box1"></div>
-    <div
-      id="box">
-	</div>
-    <div id="box2" v-on:click="box2"></div>
-    <div id="box3" @click="box3"></div>
-    <div id="box4" @click="box4"></div>
-    <div id="box5" @click="box5"></div>
-    <div id="box6" v-on:click="box6"></div>
+    <div class="b box1" v-on:click="color = 'red'"></div>
+    <div id="box" :style="{background: color}"></div>
+    <div class="b box2" @click="color = 'orange'"></div>
+    <div class="b box3" @click="color = 'yellow'"></div>
+    <div class="b box4" @click="color = 'green'"></div>
+    <div class="b box5" 
+    @click="color = 'rgb(52, 201, 221)'">
+    </div>
+    <div class="b box6" @click="box6"></div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Cuadro',  
+  name: 'Cuadro',
+  data() {
+    return {
+        color: 'red',
+    }
+  },
+  
   methods: {
-	box1: function (){
-		document
-    .getElementById("box")
-    .setAttribute("style", "width: 300px;height:300px;background-color: red;");
-	},
-	box2: function (){
-		document
-    .getElementById("box")
-    .setAttribute(
-      "style",
-      "background: orange;"
-    );
-	},
-  box3: function (){
-		document
-    .getElementById("box")
-    .setAttribute("style", "width: 300px;height:300px;background-color: yellow;");
-	},
-  box4: function (){
-		document
-    .getElementById("box")
-    .setAttribute("style", "width: 300px;height:300px;background-color: green;");
-	},
-  box5: function (){
-		document
-    .getElementById("box")
-    .setAttribute("style", "width: 300px;height:300px;background-color: rgb(52, 201, 221);");
-	},
   box6: function (){
-		document
-    .getElementById("box")
-    .setAttribute("style", "width: 300px;height:300px;background-color: rgb(187, 40, 118);");
-	},
+    this.color= 'rgb(187, 40, 118)'
+	}
   }
 }
 
 </script>
-
 
 <style scoped>
 .columnas {
@@ -67,46 +42,28 @@ export default {
   background-color: red;
   border: 1px solid black;
 }
-#box1 {
+.b {
   width: 50px;
   grid-column: 1 / 2;
   height: 50px;
+  border: 1px solid black;
+}
+.box1 {
   background-color: red;
-  border: 1px solid black;
 }
-#box2 {
-    width: 50px;
-    grid-column: 1 / 2;
-    height:50px;
+.box2 {
     background-color:orange;
-    border:1px solid black;
 }
-#box3 {
-  width: 50px;
-  grid-column: 1 / 2;
-  height: 50px;
+.box3 {
   background-color: yellow;
-  border: 1px solid black;
 }
-#box4 {
-    width: 50px;
-    grid-column: 1 / 2;
-    height:50px;
+.box4 {
     background-color:green;
-    border:1px solid black;
 }
-#box5 {
-  width: 50px;
-  grid-column: 1 / 2;
-  height: 50px;
+.box5 {
   background-color: rgb(52, 201, 221);
-  border: 1px solid black;
 }
-#box6 {
-    width: 50px;
-    grid-column: 1 / 2;
-    height:50px;
+.box6 {
     background-color:rgb(187, 40, 118);
-    border:1px solid black;
 }
 </style>
